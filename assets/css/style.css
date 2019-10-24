@@ -1,0 +1,71 @@
+body {
+    text-align: center;
+    background-image: url("../images/vapor.jpg");
+    background-size: 100%;
+    color: black;
+}
+button{
+    font-family: 'Raleway', sans-serif;
+    background-color: bisque;
+    border: 2px, solid, violet;
+}
+.box {
+    margin: 5%;
+    padding: 5%;
+    border-top: 20px;
+    border-color: rgb(219,112,147)
+}
+/* font stuff */
+h1 { 
+    font-family: Orbitron; 
+    font-size: 30px; 
+    font-style: italic; 
+    font-variant: small-caps; 
+    font-weight: 400; 
+    line-height: 30px; 
+} 
+h3 { 
+    font-family: Orbitron; 
+    font-size: 18px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 700; 
+    line-height: 15.4px; 
+} 
+p { 
+    font-family: 'Raleway', sans-serif;
+    font-size: 14px; 
+    font-weight: 400; 
+    line-height: 20px; 
+} 
+
+h5, h6, a, td, th {
+    font-family: 'Raleway', sans-serif;
+}
+.block { 
+    font-family: Orbitron; 
+    font-size: 21px; 
+    font-style: normal; 
+    font-variant: normal; 
+    font-weight: 400; 
+    line-height: 30px; 
+} 
+
+nav {
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#dcbaff+0,70c5f9+100 */
+    background: rgb(153,192,251); /* Old browsers */
+background: -moz-linear-gradient(left,  rgb(153,192,251) 0%, rgb(112,197,249) 100%); 
+background: -webkit-linear-gradient(left,  rgb(153,192,251) 0%,rgb(112,197,249) 100%);
+background: linear-gradient(to right,  rgb(153,192,251) 0%,rgb(112,197,249) 100%); 
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dcbaff', endColorstr='#70c5f9',GradientType=1 ); /* IE6-9 */
+
+    color: black;
+}
+
+.card {
+    text-align: center;
+    /* background-image: url("../images/vapor-flip.jpg"); */
+    background: rgb(219, 185, 255);
+    background-size: 120%;
+    color: black;
+}

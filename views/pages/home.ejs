@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>All The News</title>
+    <% include ../partials/head %>
+
+</head>
+
+<body>
+    <% include ../partials/nav %>
+    <div class="box">
+        <h1>ATN</h1>
+        <h3>All The News</h3>
+        <br><br>
+
+
+        <div id="articles">
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        var aBox = $("#articles")
+
+        $.ajax({ url: '/verge', method: 'GET' }).then(function (res) {
+            for (var i = 0; i < res.length; i++) {
+
+                console.log(`${res[i].title}`)
+                aBox.append(`<p>Title: ${res[i].title} <br> Link: <a href="${res[i].link}">${res[i].link}</a></p>`)
+
+
+            }
+        })
+
+    </script>
+</body>
+
+</html>
