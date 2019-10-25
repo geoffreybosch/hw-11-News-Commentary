@@ -39,6 +39,24 @@ app.use(bodyParser.json())
 
 //////////////////////////////////////////////////////////////////////
 
+var PORT = process.env.PORT || 3000;
+
+//connect to mongo
+
+// Database configuration
+var databaseUrl = process.env.MONGODB_URI || "news_db";
+var collections = ["articles"];
+
+// Hook mongojs config to db variable
+var db = mongojs(databaseUrl, collections);
+
+// Log any mongojs errors to console
+db.on("error", function (error) {
+  console.log("Database Error:", error);
+});
+
+//////////////////////////////////////////////////////////////////////
+
 app.get('/', function (req, res) {
   res.render('pages/home');
 });
@@ -91,9 +109,27 @@ app.get('/verge', function (req, res) {
 
 });
 
+//////////////////////////////////////////////////////////////////////
+
+app.post("/songs", function (req, res) {
+  //validation here
+  // req.body.songName.length > 1
+
+  // Insert the song into the songs collection
+  db.articles.insert({ link: req.body.link, title: req.body.title }, function (error, articles) {
+    // Log any errors
+    if (error) {
+      console.log(error);
+    } else {
+      //the reason why we are sending the savedSong back is because we now have an _id to give to the client
+      res.json(articles);
+    }
+  });
+});
 
 
 
-app.listen(3000, function () {
-  console.log('listening on 3000');
+// Listen on port 3000
+app.listen(PORT, function () {
+  console.log('🌎 ==> Now listening on PORT %s! Visit http://localhost:%s in your browser!', PORT, PORT);
 });
